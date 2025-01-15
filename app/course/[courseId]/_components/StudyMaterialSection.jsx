@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import MaterialCardItem from "./MaterialCardItem";
 import axios from "axios";
 
-
 function StudyMaterialSection({courseId}) {
   const [studyTypeContent,setStudyTypeContent]=useState()
   const MaterialList = [
@@ -33,17 +32,12 @@ function StudyMaterialSection({courseId}) {
     },
   ];
 
-
   useEffect(()=>{
     GetStudyMaterial();
 
-  },[courseId])
-
-
-
+  },[])
   const GetStudyMaterial= async()=>{
-
-    const result= await axios.post('/api/study-type',{
+    const result= await axios.post('http://localhost:3000/api/study',{
       courseId:courseId,
       studyType:'ALL'
     })
